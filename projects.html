@@ -1,23 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aleksandra Czarniecka - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        code {
-
-            background-color: #f4f4f4; /* Light background for code */
-            padding: 10px;
-            border-radius: 5px;
-            display: block;
-            white-space: pre-wrap; /* Allows the code to wrap when it's too long */
-            word-wrap: break-word;
-            margin: 20px 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -33,77 +21,114 @@
 
     <section id="projects">
         <h1>Projects <i class="fa fa-laptop" aria-hidden="true"></i></h1>
+
+        <article class="project">
+            <a href="https://github.com/czarniecka/compiler"><h2>Imperative Language Compiler</h2></a>
+            <p>
+                This project focuses on the creation of a compiler for a simple imperative programming language. It is
+                designed to convert source code into virtual machine instructions, supporting basic constructs such as variables, arrays, arithmetic,
+                loops, conditionals and procedures. Built using Python and the SLY library, the compiler performs both lexical and syntactic
+                analysis, ensuring that the source code adheres to the language's rules. In addition, it identifies semantic errors
+                and generates optimized machine code, which is then executed on a virtual machine.
+            </p>
+            <pre>
+                <code>
+                for param, arg in zip(params, args):
+                    param_address = params[param]  
+                    arg_address = self.symbol_table.get_pointer(arg)  
+                    self.emit(f"SET {arg_address}")  
+                    self.emit(f"STORE {param_address}")
+                </code>
+            </pre>
+
+            <p>
+                Key features:
+            </p>
+                <ul class="key-features">
+                    <li>Lexical and syntactic analysis of source code</li>
+                    <li>Semantic error detection to ensure correct program behavior</li>
+                    <li>Generation of optimized machine code for execution</li>
+                    <li>Flexible and extensible architecture for future enhancements</li>
+                </ul>
+
+        </article>
         
-        <div class="project">
+        <article class="project">
             <a href="https://github.com/czarniecka/go"><h2>Strategic Go Game with Client-Server Architecture</h2></a>
             <p>
                 This project is a strategic Go game implemented with a client-server architecture, where the server manages
-                the game logic and maintains a persistent SQL database to store game data. The backend is written in Java,
-                providing a scalable and efficient environment for real-time multiplayer gameplay. The client, built using
-                modern web technologies, offers an intuitive interface and supports seamless interaction with the server. 
+                the game logic and maintains a SQL database to store game data. The backend is written in Java,
+                providing a scalable and efficient environment for real-time multiplayer gameplay. The client offers an intuitive interface and supports seamless interaction with the server. 
                 The game ensures real-time synchronization of game state across multiple clients, making it suitable for 
                 multiplayer gaming experiences.
             </p>
-            <pre><code>
+            <pre>
+                <code>
+                public int calculateBreaths(StonesGroup group){
+                    int[][] fields = {{0,-1},{0,1},{-1,0},{1,0}};
+                    int breaths = 0;
+                    List&lt;String&gt; neighboringFields = new ArrayList&lt;&gt;();
+                    for(SingleStone stone : group.getStones()){
+                        for(int[] dir: fields) {
+                            int currX = stone.getX() + dir[0];
+                            int currY = stone.getY() + dir[1];
+                            String field = currX+" "+currY;
+                            if(isEmpty(currX, currY) && !neighboringFields.contains(field)){
+                                breaths += 1;
+                                neighboringFields.add(field);
+                            }
+                        }
+                    }
+                    return breaths;
+                </code>
+            </pre>
+            <p>
+                Key features:
+            </p>
+                <ul class="key-features">
+                    <li>Intuitive client interface</li>
+                    <li>Real-time multiplayer support</li>
+                    <li>Game state management with SQL database</li>
+                    <li>Client-server communication with data synchronization</li>
+                </ul>
+            
+        </article>
+    
+        
+    
+        <article class="project">
+            <a href="https://github.com/czarniecka/RTS"><h2>Real Time Strategy Game</h2></a>
+            <p>
+                This project is a real-time strategy (RTS) game using the Godot Engine, where players can manage resources, build
+                structures, and control units to outsmart their opponents. The game mechanics, including base building, unit
+                creation, and combat, were designed to provide an engaging and challenging experience for players. In addition, players can create their own accounts.
+            </p>
+            <pre>
+                <code>
                 func _execute_query(query: String, error_message: String):
                     if not db.query(query):
                         _log_message(error_message + ": " + db.get_error_message())
                         push_error(error_message + ": " + db.get_error_message())
                         return false
                     return true
-                </code></pre>
+                </code>
+            </pre>
+
             <p>
-                Key Features:
-                <ul>
-                    <li>Real-time multiplayer support with low latency</li>
-                    <li>Intuitive client interface with a focus on user experience</li>
-                    <li>Persistent game state management with SQL database</li>
-                    <li>Client-server communication with robust data synchronization</li>
-                </ul>
+                Key features:
             </p>
-        </div>
-    
-        <div class="project">
-            <a href="https://github.com/czarniecka/compiler"><h2>Imperative Language Compiler</h2></a>
-            <p>
-                This project focuses on the creation of a compiler for a simple imperative programming language. It is
-                designed to convert source code into virtual machine instructions, supporting basic constructs such as variables,
-                loops, and conditionals. Built using Python and the SLY library, the compiler performs both lexical and syntactic
-                analysis, ensuring that the source code adheres to the language's rules. In addition, it identifies semantic errors
-                and generates optimized machine code, which is then executed on a virtual machine.
-            </p>
-            <pre><code>class MyLexer(Lexer):
-        tokens = { NAME, NUMBER, PLUS, MINUS }
-    </code></pre>
-            <p>
-                Key Features:
-                <ul>
-                    <li>Lexical and syntactic analysis of source code</li>
-                    <li>Semantic error detection to ensure correct program behavior</li>
-                    <li>Generation of optimized machine code for execution</li>
-                    <li>Flexible and extensible architecture for future enhancements</li>
-                </ul>
-            </p>
-        </div>
-    
-        <div class="project">
-            <a href="https://github.com/czarniecka/RTS"><h2>Real Time Strategy Game</h2></a>
-            <p>
-                Developed a real-time strategy (RTS) game using the Godot Engine, where players can manage resources, build
-                structures, and control units to outsmart their opponents. The game features AI-controlled enemies with different
-                levels of difficulty and a dynamic resource management system. The game mechanics, including base building, unit
-                creation, and combat, were designed to provide an engaging and challenging experience for players.
-            </p>
-            <p>
-                Key Features:
-                <ul>
-                    <li>AI-controlled enemies with adaptive behavior and strategy</li>
+                <ul class="key-features">
                     <li>Real-time gameplay with a focus on strategic decision-making</li>
                     <li>Resource management system for building and upgrading units and structures</li>
                     <li>Intuitive controls and interface designed for fluid gameplay</li>
+                    <li>SQLite-based account system</li>
                 </ul>
-            </p>
-        </div>
+
+        </article>
     </section>
-    
+    <nav class="nav-footer">
+        <footer>
+            <p>&copy; 2025 Portfolio Aleksandra Czarniecka</p>
+        </footer>
+    </nav>
 </body>
